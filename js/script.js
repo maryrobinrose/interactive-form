@@ -26,12 +26,19 @@ When a new theme is selected from the "Design" menu, the "Color" field and drop 
 
 here are two great properties that are helpful for manipulating those option tags.  When you want to choose which option tag shows in the `select` element, you can use the handy setAttribute method to give it the `selected` attribute, and set it to true.  And when you want to hide an option tag, you can give it the `hidden` attribute, set to true.  And then when you want to show that one again, you just use removeAttribute to drop the `hidden` attribute.*/
 
+//Hides color options on page load
 $('#colors-js-puns').hide();
 
+//Shows color options that match design selection
 $('#design').change(function() {
-  if ( this.value == 'js puns') {
-    $("#cornflowerblue").show();
-  }
+  if (this.value == 'js puns') {
+    $('#colors-js-puns').show();
+    $('#color option[value="cornflowerblue"]').attr('selected', true).attr('hidden', false);
+  } //else if {
+
+  //} else {
+
+  //}
 });
 
 
