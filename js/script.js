@@ -32,6 +32,7 @@ $('#colors-js-puns').hide();
 $('#design').change(function() {
   if (this.value == 'js puns') {
     $('#colors-js-puns').show();
+
     $('#color option[value="cornflowerblue"]').attr('selected', true).attr('hidden', false);
     $('#color option[value="darkslategrey"]').attr('selected', true).attr('hidden', false);
     $('#color option[value="gold"]').attr('selected', true).attr('hidden', false);
@@ -39,7 +40,8 @@ $('#design').change(function() {
     $('#color option[value="tomato"]').attr('selected', false).attr('hidden', true);
     $('#color option[value="steelblue"]').attr('selected', false).attr('hidden', true);
     $('#color option[value="dimgrey"]').attr('selected', false).attr('hidden', true);
-  } else if {
+
+  } else if (this.value == 'heart js') {
     $('#color option[value="cornflowerblue"]').attr('selected', false).attr('hidden', true);
     $('#color option[value="darkslategrey"]').attr('selected', false).attr('hidden', true);
     $('#color option[value="gold"]').attr('selected', false).attr('hidden', true);
@@ -47,6 +49,7 @@ $('#design').change(function() {
     $('#color option[value="tomato"]').attr('selected', true).attr('hidden', false);
     $('#color option[value="steelblue"]').attr('selected', true).attr('hidden', false);
     $('#color option[value="dimgrey"]').attr('selected', true).attr('hidden', false);
+
   } else {
     $('#colors-js-puns').hide();
   }
