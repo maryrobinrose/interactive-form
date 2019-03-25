@@ -17,14 +17,6 @@ $('#title').change(function() {
     }
 });
 
-/*”T-Shirt Info” section
-
-For the T-Shirt "Color" menu, only display the color options that match the design selected in the "Design" menu.
-If the user selects "Theme - JS Puns" then the color menu should only display "Cornflower Blue," "Dark Slate Grey," and "Gold."
-If the user selects "Theme - I ♥ JS" then the color menu should only display "Tomato," "Steel Blue," and "Dim Grey."
-When a new theme is selected from the "Design" menu, the "Color" field and drop down menu is updated.*/
-
-
 //Hides color options on page load
 $('#colors-js-puns').hide();
 
@@ -61,6 +53,13 @@ Some events are at the same day and time as others. If the user selects a worksh
 When a user unchecks an activity, make sure that competing activities (if there are any) are no longer disabled.
 As a user selects activities, a running total should display below the list of checkboxes. For example, if the user selects "Main Conference", then Total: $200 should appear. If they add 1 workshop, the total should change to Total: $300.*/
 
+////Add total of checkboxes together and display running total
+  //Create a span that holds running total
+  //Hide span on page load
+  //Select the activities div
+  //Add total of selected checkboxes togeter
+  //Show span that holds total amount of selected checkboxes
+  //Hide span when no boxes are checked
 
 
 
