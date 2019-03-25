@@ -61,6 +61,15 @@ As a user selects activities, a running total should display below the list of c
   //Show span that holds total amount of selected checkboxes
   //Hide span when no boxes are checked
 
+  $('input:checkbox').change(function () {
+      let total = 0;
+      // iterate through each checked element
+      $('input:checkbox:checked').each(function(){
+        total += isNaN(parseInt($(this).val())) ? 0 : parseInt($(this).val());
+      });
+      $("#total").val(total);
+});
+
 
 
 console.log('hi');
