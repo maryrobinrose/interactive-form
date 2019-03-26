@@ -64,26 +64,25 @@ let $activities = $('.activities');
 //Append it to activities section
 $activities.append($total);
 
-//if .all is checked
-$('[name="all"]').change(function () {
-  let $checked = $(this).prop('checked');
-  if($checked) {
+//If Main Conference is checked, add 200 to sum
+$('input[name="all"]').change(function () {
+  if($(this).prop('checked')) {
     $sum += 200;
-    $total.html($sum);
   }
 });
 
-/*if .js-frameworks is checked
+//If JavaScript Frameworks Workshop is checked, add 100 to sum
 
-if .js-libs is checked
 
-if .express is checked
+//if .js-libs is checked
 
-if .node is checked
+//if .express is checked
 
-if .build-tools is checked
+//if .node is checked
 
-if .npm is checked*/
+//if .build-tools is checked
+
+//if .npm is checked
 
 
 
