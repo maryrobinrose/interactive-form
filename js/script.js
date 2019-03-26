@@ -63,25 +63,49 @@ const $total = $('<h4 class="textTotal">Total: ' + '$' +  $sum + '</h4>');
 let $activities = $('.activities');
 //Append it to activities section
 $activities.append($total);
-//Hide total on page load
-$total.hide();
-//When a checkbox is clicked
+
+if .all is checked
+
+if .js-frameworks is checked
+
+if .js-libs is checked
+
+if .express is checked
+
+if .node is checked
+
+if .build-tools is checked
+
+if .npm is checked
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*//When a checkbox is clicked
 $('input:checkbox').on('change', function () {
   if ($(this).is(':checked')) {
     //Show the h4 heading
-    $('.textTotal').show();
+    $total.show();
     //Add the value of each clicked checkbox
     $sum += +this.value;
-    //Change string to a number and add it to the h4 
+    //Change string to a number and add it to the h4
     $('.textTotal').html(parseInt($sum));
-  }
-});
-
-/*//Show the total when checkboxes are selected
-$('input[type="checkbox"]:checked').change(function(){
-  if ($(this).is(':checked')) {
-    $('.textTotal').show();
-    $sum += +this.value;
-    $('textTotal').html(parseInt($sum));
+  } else if ($('input:checkbox')) {
+    //Subtract value when checkbox is unclicked
+    $sum -= +this.value;
+    $('.textTotal').html(parseInt($sum));
   }
 });*/
