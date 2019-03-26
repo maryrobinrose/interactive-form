@@ -55,21 +55,22 @@ $('#design').change(function() {
 });
 
 //*** Register for Activities ***//
+//Starting sum
+let $sum = 0;
 //Creates a header to hold activities total
-const $total = $('<h4>Total: ' + '$' +  $sum + '</h4>');
+const $total = $('<h4 class="textTotal">Total: ' + '$' +  $sum + '</h4>');
+//Select activities section
+let $activities = $('.activities');
 //Append it to activities section
 $activities.append($total);
 //Hide total on page load
 $total.hide();
 
-//Select activities section
-let $activities = $('.activities');
-let $sum = 0;
-
-//Select checkboxes and add total cost
-const $checkBoxes = $('input[type="checkbox"]:checked');
-$sum = $checkBoxes.length * 100;
-if ($('input[name="all"]').is(':checked')) {
-  $sum += 100;
-    $total.show($sum);
-}
+//Show the total when checkboxes are selected
+$('input[type="checkbox"]:checked').change(function(){
+  if ($(this).is(':checked')) {
+    $('.textTotal').show();
+    $sum += +this.value;
+    $('textTotal').html(parseInt($sum));
+  }
+});
