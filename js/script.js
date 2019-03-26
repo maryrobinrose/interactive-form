@@ -70,14 +70,6 @@ $activities.append($total);
 //Hide total on page load
 $total.hide();
 
-  $('input:checkbox').change(function () {
-      let total = 0;
-      // iterate through each checked element
-      $('input:checkbox:checked').each(function(){
-        total += isNaN(parseInt($(this).val())) ? 0 : parseInt($(this).val());
-      });
-      $(".total").val(total);
-});
 
 
 console.log('hi');
