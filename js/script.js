@@ -1,12 +1,17 @@
-//Global variables
-const $otherTitle = $('#other-title');
-const $activities = $('.activities');
+/******************************************
+Treehouse Techdegree:
+FSJS project 3 - Interactive Form
+******************************************/
+
 
 //Set focus on first text field when page loads
 $(document).ready(function() {
     $('form:first *:input[type!=hidden]:first').focus();
 });
 
+//*** Job Role ***//
+//Selects "Other" job title from list
+const $otherTitle = $('#other-title');
 //Hides otherTitle text field when page loads
 $otherTitle.hide();
 
@@ -19,6 +24,7 @@ $('#title').change(function() {
     }
 });
 
+//*** T-Shirt Info ***//
 //Hides color options on page load
 $('#colors-js-puns').hide();
 
@@ -49,41 +55,25 @@ $('#design').change(function() {
   }
 });
 
-/*”Register for Activities” section
-
-Some events are at the same day and time as others. If the user selects a workshop, don't allow selection of a workshop at the same day and time -- you should disable the checkbox and visually indicate that the workshop in the competing time slot isn't available.
-When a user unchecks an activity, make sure that competing activities (if there are any) are no longer disabled.
-As a user selects activities, a running total should display below the list of checkboxes. For example, if the user selects "Main Conference", then Total: $200 should appear. If they add 1 workshop, the total should change to Total: $300.*/
-
-////Add total of checkboxes together and display running total
-  //Create a span that holds running total
-  //Hide span on page load
-  //Select the activities div
-  //Add total of selected checkboxes togeter
-  //Show span that holds total amount of selected checkboxes
-  //Hide span when no boxes are checked
+//*** Register for Activities ***//
+//Select activities section
+const $activities = $('.activities');
 
 //Creates a header to hold activities total
-const $total = $('<h4>Total: </h4>');
+const $total = $('<h4>Total: ' + '$' + ' $sum' + '</h4>');
 //Append it to activities section
 $activities.append($total);
 //Hide total on page load
 $total.hide();
 
+let $sum = 0;
+
 //Select checkboxes and add total cost
 $(':checkbox').change(function() {
-    let sum = 0;
     $(':checkbox:checked').each(function() {
       if ($('input[name="all"]').is(':checked')) {
-        sum += 100;
-        console.log('hello');
+        $sum += 100;
       }
     });
-    $total.show(sum);
+    $total.show($sum);
 });
-
-////Disable conflicting events
-  //Conditional statement
-
-
-console.log('hi');
