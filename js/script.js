@@ -70,13 +70,20 @@ $activities.append($total);
 //Hide total on page load
 $total.hide();
 
+//Select checkboxes and add total cost
 $(':checkbox').change(function() {
     let sum = 0;
     $(':checkbox:checked').each(function() {
-        sum = sum + parseInt( $(this).val() );
+      if ($('input[name="all"]').is(':checked')) {
+        sum += 100;
+        console.log('hello');
+      }
     });
     $total.show(sum);
 });
+
+////Disable conflicting events
+  //Conditional statement
 
 
 console.log('hi');
