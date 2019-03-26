@@ -70,6 +70,13 @@ $activities.append($total);
 //Hide total on page load
 $total.hide();
 
+$(':checkbox').change(function() {
+    let sum = 0;
+    $(':checkbox:checked').each(function() {
+        sum = sum + parseInt( $(this).val() );
+    });
+    $total.show(sum);
+});
 
 
 console.log('hi');
