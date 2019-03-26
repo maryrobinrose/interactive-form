@@ -1,4 +1,6 @@
+//Global variables
 const $otherTitle = $('#other-title');
+const $activities = $('.activities');
 
 //Set focus on first text field when page loads
 $(document).ready(function() {
@@ -61,15 +63,21 @@ As a user selects activities, a running total should display below the list of c
   //Show span that holds total amount of selected checkboxes
   //Hide span when no boxes are checked
 
+//Creates a header to hold activities total
+const $total = $('<h4>Total: </h4>');
+//Append it to activities section
+$activities.append($total);
+//Hide total on page load
+$total.hide();
+
   $('input:checkbox').change(function () {
       let total = 0;
       // iterate through each checked element
       $('input:checkbox:checked').each(function(){
         total += isNaN(parseInt($(this).val())) ? 0 : parseInt($(this).val());
       });
-      $("#total").val(total);
+      $(".total").val(total);
 });
-
 
 
 console.log('hi');
