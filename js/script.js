@@ -65,12 +65,15 @@ let $activities = $('.activities');
 $activities.append($total);
 //Hide total on page load
 $total.hide();
-
+//When a checkbox is clicked
 $('input:checkbox').on('change', function () {
   if ($(this).is(':checked')) {
+    //Show the h4 heading
     $('.textTotal').show();
-    $sum += + this.value;
-    console.log($sum);
+    //Add the value of each clicked checkbox
+    $sum += +this.value;
+    //Change string to a number and add it to the h4 
+    $('.textTotal').html(parseInt($sum));
   }
 });
 
