@@ -64,9 +64,16 @@ let $activities = $('.activities');
 //Append it to activities section
 $activities.append($total);
 
-if .all is checked
+//if .all is checked
+$('[name="all"]').change(function () {
+  let $checked = $(this).prop('checked');
+  if($checked) {
+    $sum += 200;
+    $total.html($sum);
+  }
+});
 
-if .js-frameworks is checked
+/*if .js-frameworks is checked
 
 if .js-libs is checked
 
@@ -76,7 +83,7 @@ if .node is checked
 
 if .build-tools is checked
 
-if .npm is checked
+if .npm is checked*/
 
 
 
