@@ -58,14 +58,6 @@ $('#design').change(function() {
 //*** Register for Activities ***//
 //Select activities section
 const $activities = $('.activities');
-
-//Creates a header to hold activities total
-const $total = $('<h4>Total: ' + '$' + ' $sum' + '</h4>');
-//Append it to activities section
-$activities.append($total);
-//Hide total on page load
-$total.hide();
-
 let $sum = 0;
 
 //Select checkboxes and add total cost
@@ -77,3 +69,10 @@ $(':checkbox').change(function() {
     });
     $total.show($sum);
 });
+
+//Creates a header to hold activities total
+const $total = $('<h4>Total: ' + '$' +  $sum + '</h4>');
+//Append it to activities section
+$activities.append($total);
+//Hide total on page load
+$total.hide();
