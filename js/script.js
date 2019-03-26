@@ -5,9 +5,8 @@ FSJS project 3 - Interactive Form
 
 
 //Set focus on first text field when page loads
-$(document).ready(function() {
-    $('form:first *:input[type!=hidden]:first').focus();
-});
+$('#name').focus();
+
 
 //*** Job Role ***//
 //Selects "Other" job title from list
@@ -56,64 +55,21 @@ $('#design').change(function() {
 });
 
 //*** Register for Activities ***//
-//Select activities section
-const $activities = $('.activities');
-let $sum = 0;
-
-//Array of activities containing their info
-let $allActivities = [
-  {
-    name: $('all'),
-    time: '',
-    cost: 200
-  },
-  {
-    name: $('js-frameworks'),
-    time: 'Tuesday 9am-12pm',
-    cost: 100
-  },
-  {
-    name: $('js-libs'),
-    time: 'Tuesday 1pm-4pm',
-    cost: 100
-  },
-  {
-    name: $('express'),
-    time: 'Tuesday 9am-12pm',
-    cost: 100
-  },
-  {
-    name: $('node'),
-    time: 'Tuesday 1pm-4pm, $100',
-    cost: 100
-  },
-  {
-    name: $('build-tools'),
-    time: 'Wednesday 9am-12pm',
-    cost: 100
-  },
-  {
-    name: $('npm'),
-    time: 'Wednesday 1pm-4pm',
-    cost: 100
-  }
-];
-
-
-
-//Select checkboxes and add total cost
-$(':checkbox').change(function() {
-    $(':checkbox:checked').each(function() {
-      if ($('input[name="all"]').is(':checked')) {
-        $sum += 100;
-      }
-    });
-    $total.show($sum);
-});
-
 //Creates a header to hold activities total
 const $total = $('<h4>Total: ' + '$' +  $sum + '</h4>');
 //Append it to activities section
 $activities.append($total);
 //Hide total on page load
 $total.hide();
+
+//Select activities section
+let $activities = $('.activities');
+let $sum = 0;
+
+//Select checkboxes and add total cost
+const $checkBoxes = $('input[type="checkbox"]:checked');
+$sum = $checkBoxes.length * 100;
+if ($('input[name="all"]').is(':checked')) {
+  $sum += 100;
+    $total.show($sum);
+}
