@@ -66,11 +66,19 @@ $activities.append($total);
 //Hide total on page load
 $total.hide();
 
-//Show the total when checkboxes are selected
+$('input:checkbox').on('change', function () {
+  if ($(this).is(':checked')) {
+    $('.textTotal').show();
+    $sum += + this.value;
+    console.log($sum);
+  }
+});
+
+/*//Show the total when checkboxes are selected
 $('input[type="checkbox"]:checked').change(function(){
   if ($(this).is(':checked')) {
     $('.textTotal').show();
     $sum += +this.value;
     $('textTotal').html(parseInt($sum));
   }
-});
+});*/
