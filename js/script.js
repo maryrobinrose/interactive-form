@@ -60,6 +60,47 @@ $('#design').change(function() {
 const $activities = $('.activities');
 let $sum = 0;
 
+//Array of activities containing their info
+let $allActivities = [
+  {
+    name: $('all'),
+    time: '',
+    cost: 200
+  },
+  {
+    name: $('js-frameworks'),
+    time: 'Tuesday 9am-12pm',
+    cost: 100
+  },
+  {
+    name: $('js-libs'),
+    time: 'Tuesday 1pm-4pm',
+    cost: 100
+  },
+  {
+    name: $('express'),
+    time: 'Tuesday 9am-12pm',
+    cost: 100
+  },
+  {
+    name: $('node'),
+    time: 'Tuesday 1pm-4pm, $100',
+    cost: 100
+  },
+  {
+    name: $('build-tools'),
+    time: 'Wednesday 9am-12pm',
+    cost: 100
+  },
+  {
+    name: $('npm'),
+    time: 'Wednesday 1pm-4pm',
+    cost: 100
+  }
+];
+
+
+
 //Select checkboxes and add total cost
 $(':checkbox').change(function() {
     $(':checkbox:checked').each(function() {
