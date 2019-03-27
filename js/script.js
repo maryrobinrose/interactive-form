@@ -62,6 +62,7 @@ let $activities = $(".activities");
 //Creates a header to hold activities total
 const $total = document.createElement("div");
 $($activities).append($total);
+
 //If Main Conference is checked, add 200 to sum
 $('input[name="all"]').change(function (event) {
   if($(event.target).is(':checked')) {
@@ -72,25 +73,65 @@ $('input[name="all"]').change(function (event) {
   $total.innerHTML = 'Total: $' + $sum;
 });
 
-//If JavaScript Frameworks Workshop is checked, add 100 to sum
-/*$('input[name="js-frameworks"]').change(function () {
-  if($(this).prop('checked')) {
+//If JavaScript Frameworks Workshop is checked
+$('input[name="js-frameworks"]').change(function (event) {
+  if($(event.target).is(':checked')) {
     $sum += 100;
-    console.log($sum);
-  } else if ($(this).prop('checked', false)) {
+  } else {
     $sum -= 100;
   }
-});*/
+  $total.innerHTML = 'Total: $' + $sum;
+});
 
-//if .js-libs is checked
+//If JavaScript Libraries Workshop is checked
+$('input[name="js-libs"]').change(function (event) {
+  if($(event.target).is(':checked')) {
+    $sum += 100;
+  } else {
+    $sum -= 100;
+  }
+  $total.innerHTML = 'Total: $' + $sum;
+});
 
-//if .express is checked
+//If Express Workshop is checked
+$('input[name="express"]').change(function (event) {
+  if($(event.target).is(':checked')) {
+    $sum += 100;
+  } else {
+    $sum -= 100;
+  }
+  $total.innerHTML = 'Total: $' + $sum;
+});
 
-//if .node is checked
+//If Node.js Workshop is checked
+$('input[name="node"]').change(function (event) {
+  if($(event.target).is(':checked')) {
+    $sum += 100;
+  } else {
+    $sum -= 100;
+  }
+  $total.innerHTML = 'Total: $' + $sum;
+});
 
-//if .build-tools is checked
+//If Build tools Workshop is checked
+$('input[name="build-tools"]').change(function (event) {
+  if($(event.target).is(':checked')) {
+    $sum += 100;
+  } else {
+    $sum -= 100;
+  }
+  $total.innerHTML = 'Total: $' + $sum;
+});
 
-//if .npm is checked
+//If npm Workshop is checked
+$('input[name="npm"]').change(function (event) {
+  if($(event.target).is(':checked')) {
+    $sum += 100;
+  } else {
+    $sum -= 100;
+  }
+  $total.innerHTML = 'Total: $' + $sum;
+});
 
 
 
