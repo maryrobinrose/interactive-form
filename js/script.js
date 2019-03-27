@@ -65,9 +65,10 @@ let $activities = $('.activities');
 $activities.append($total);
 
 //If Main Conference is checked, add 200 to sum
-$('input[name="all"]').change(function () {
+$('input[name="all"]').change(function (event) {
   if($(this).prop('checked')) {
     $sum += 200;
+    event.target
     console.log($sum);
   } else if ($(this).prop('checked', false)) {
     $sum -= 200;
