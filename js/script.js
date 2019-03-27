@@ -55,20 +55,26 @@ $('#design').change(function() {
 });
 
 //*** Register for Activities ***//
+
+/*(added a div element with `document.createElement`), I also set the `innerHTML` of the `div` we just created to equal the updated `$sum`. I added `'Total: $'` to the beginning so that it's not just a random number popping up and the user knows it's referring to a total*/
+
 //Starting sum
-let $sum = 0;
+let sum = 0;
+let totalDiv = document.createElement('div');
+totalDiv.innerHTML = 'Total: $' + sum;
+
 //Creates a header to hold activities total
-const $total = $('<h4 class="textTotal">Total: ' + '$' +  $sum + '</h4>');
+//const $total = $('<h4 class="textTotal">Total: ' + '$' +  $sum + '</h4>');
+
 //Select activities section
 let $activities = $('.activities');
 //Append it to activities section
-$activities.append($total);
+$activities.append(totalDiv);
 
 //If Main Conference is checked, add 200 to sum
-$('input[name="all"]').change(function (event) {
+$('input[name="all"]').change(function () {
   if($(this).prop('checked')) {
     $sum += 200;
-    event.target
     console.log($sum);
   } else if ($(this).prop('checked', false)) {
     $sum -= 200;
@@ -76,14 +82,14 @@ $('input[name="all"]').change(function (event) {
 });
 
 //If JavaScript Frameworks Workshop is checked, add 100 to sum
-$('input[name="js-frameworks"]').change(function () {
+/*$('input[name="js-frameworks"]').change(function () {
   if($(this).prop('checked')) {
     $sum += 100;
     console.log($sum);
   } else if ($(this).prop('checked', false)) {
     $sum -= 100;
   }
-});
+});*/
 
 //if .js-libs is checked
 
