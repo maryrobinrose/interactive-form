@@ -73,12 +73,22 @@ $('input[name="all"]').change(function (event) {
   $total.innerHTML = 'Total: $' + $sum;
 });
 
+//Create variables for each checkbox
+const jsFrameworks = $("input[name ='js-frameworks']");
+const jsLibs = $("input[name ='js-libs']");
+const express = $("input[name ='express']");
+const node = $("input[name ='node']");
+const buildTools = $("input[name ='build-tools']");
+const npm = $("input[name ='npm']");
+
 //If JavaScript Frameworks Workshop is checked
 $('input[name="js-frameworks"]').change(function (event) {
   if($(event.target).is(':checked')) {
     $sum += 100;
+    express.prop('disabled', true);
   } else {
     $sum -= 100;
+    express.prop('disabled', false);
   }
   $total.innerHTML = 'Total: $' + $sum;
 });
