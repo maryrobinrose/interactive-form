@@ -68,11 +68,21 @@ $activities.append($total);
 $('input[name="all"]').change(function () {
   if($(this).prop('checked')) {
     $sum += 200;
+    console.log($sum);
+  } else if ($(this).prop('checked', false)) {
+    $sum -= 200;
   }
 });
 
 //If JavaScript Frameworks Workshop is checked, add 100 to sum
-
+$('input[name="js-frameworks"]').change(function () {
+  if($(this).prop('checked')) {
+    $sum += 100;
+    console.log($sum);
+  } else if ($(this).prop('checked', false)) {
+    $sum -= 100;
+  }
+});
 
 //if .js-libs is checked
 
@@ -83,8 +93,6 @@ $('input[name="all"]').change(function () {
 //if .build-tools is checked
 
 //if .npm is checked
-
-
 
 
 
