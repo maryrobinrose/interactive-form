@@ -75,7 +75,7 @@ $('input[name="all"]').change(function (event) {
 
 //Create variables for each checkbox
 const jsFrameworks = $("input[name ='js-frameworks']");
-const jsLibs = $("input[name ='js-libs']");
+const jsLibrary = $("input[name ='js-libs']");
 const express = $("input[name ='express']");
 const node = $("input[name ='node']");
 const buildTools = $("input[name ='build-tools']");
@@ -97,8 +97,10 @@ $('input[name="js-frameworks"]').change(function (event) {
 $('input[name="js-libs"]').change(function (event) {
   if($(event.target).is(':checked')) {
     $sum += 100;
+    node.prop('disabled', true);
   } else {
     $sum -= 100;
+    node.prop('disabled', false);
   }
   $total.innerHTML = 'Total: $' + $sum;
 });
@@ -107,8 +109,10 @@ $('input[name="js-libs"]').change(function (event) {
 $('input[name="express"]').change(function (event) {
   if($(event.target).is(':checked')) {
     $sum += 100;
+    jsFrameworks.prop('disabled', true);
   } else {
     $sum -= 100;
+    jsFrameworks.prop('disabled', false);
   }
   $total.innerHTML = 'Total: $' + $sum;
 });
@@ -117,8 +121,10 @@ $('input[name="express"]').change(function (event) {
 $('input[name="node"]').change(function (event) {
   if($(event.target).is(':checked')) {
     $sum += 100;
+    jsLibrary .prop('disabled', true);
   } else {
     $sum -= 100;
+    jsLibrary .prop('disabled', false);
   }
   $total.innerHTML = 'Total: $' + $sum;
 });
