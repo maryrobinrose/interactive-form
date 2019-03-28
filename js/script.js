@@ -189,7 +189,6 @@ $($payment).change(function() {
 
 
 //Regex variables
-const regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const regCreditCard = (1[3-6]);
 
 //Name field isn't blank
@@ -204,7 +203,16 @@ $('#name').on('input', function() {
 });
 
 //Email is valid
-
+$('#mail').on('input', function() {
+	let input = $(this);
+	let regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	let isEmail = regEmail.test(input.val());
+	if(isEmail) {
+    input.removeClass("invalid").addClass("valid");
+  } else {
+    input.removeClass("valid").addClass("invalid");
+  }
+});
 
 
 //At least one checkbox is selected
