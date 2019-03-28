@@ -216,18 +216,29 @@ $("input[type='checkbox']:checked").length > 0
 
 //Credit card info is valid
 //Cred card between 13 and 16 digits
-$('#credit-card').on('input', function() {
-  let input = $(this);
-  let regCard = (1[3-6]);
-  let isCard = regCard.test(input.val());
-  if(isCard) {
+$('#cc-num').on('input', function() {
+	let input = $(this);
+	let regCard = /^[0-9]{13,16}$/;
+	let isCard = regCard.test(input.val());
+	if(isCard) {
     input.removeClass("invalid").addClass("valid");
   } else {
     input.removeClass("valid").addClass("invalid");
   }
 });
-  //Zip code is 5 digits
-  //CVV is 3 digits
+
+//Zip code is 5 digits
+$('#zip').on('input', function() {
+	let input = $(this);
+	let regZip = /^[0-9]{5}$/;
+	let isZip = regZip.test(input.val());
+	if(isZip) {
+    input.removeClass("invalid").addClass("valid");
+  } else {
+    input.removeClass("valid").addClass("invalid");
+  }
+});
+//CVV is 3 digits
 
 
 
