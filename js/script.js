@@ -149,16 +149,22 @@ $('input[name="npm"]').change(function (event) {
 
 //*** Payment Info ***//
 //Create variables
-const payment = $('#payment');
-const creditCard = $('#credit-card');
-const ccNumber = $('#cc-num');
-const zipCode = $('#zip');
-const ccv = $('#ccv');
-const expMonth = $('#exp-month');
-const expYear = $('#exp-year');
-const payPal = ("fieldset div p")[0];
-const bitCoin = ("fieldset div p")[1];
+const $payment = $('#payment');
+const $creditCard = $('#credit-card');
+const $ccNumber = $('#cc-num');
+const $zipCode = $('#zip');
+const $ccv = $('#ccv');
+const $expMonth = $('#exp-month');
+const $expYear = $('#exp-year');
+const $payPal = $("fieldset div p")[0];
+const $bitCoin = $("fieldset div p")[1];
 
+//Hide PayPal and Bitcoin on page load
+$($payPal).hide();
+$($bitCoin).hide();
+
+//Default select Credit Card option
+$($payment).val('credit card');
 
 
 
