@@ -215,8 +215,17 @@ $('#mail').on('input', function() {
 $("input[type='checkbox']:checked").length > 0
 
 //Credit card info is valid
-  //Cred card between 13 and 16 digits
-  const regCreditCard = (1[3-6]);
+//Cred card between 13 and 16 digits
+$('#credit-card').on('input', function() {
+  let input = $(this);
+  let regCard = (1[3-6]);
+  let isCard = regCard.test(input.val());
+  if(isCard) {
+    input.removeClass("invalid").addClass("valid");
+  } else {
+    input.removeClass("valid").addClass("invalid");
+  }
+});
   //Zip code is 5 digits
   //CVV is 3 digits
 
