@@ -188,9 +188,6 @@ $($payment).change(function() {
 });
 
 
-//Regex variables
-const regCreditCard = (1[3-6]);
-
 //Name field isn't blank
 $('#name').on('input', function() {
 	let input = $(this);
@@ -214,11 +211,12 @@ $('#mail').on('input', function() {
   }
 });
 
-
 //At least one checkbox is selected
+$("input[type='checkbox']:checked").length > 0
 
 //Credit card info is valid
   //Cred card between 13 and 16 digits
+  const regCreditCard = (1[3-6]);
   //Zip code is 5 digits
   //CVV is 3 digits
 
