@@ -165,6 +165,8 @@ $($bitCoin).hide();
 
 //Default select Credit Card option
 $($payment).val('credit card');
+//Disable Select Method payment
+$('#payment option[value="select_method"]').attr('disabled',"disabled");
 
 //Show correct option when selected
 $($payment).change(function() {
@@ -176,7 +178,7 @@ $($payment).change(function() {
     $($creditCard).hide();
     $($payPal).show();
     $($bitCoin).hide();
-  } else {
+  } else if (this.value == 'bitcoin'){
     $($creditCard).hide();
     $($payPal).hide();
     $($bitCoin).show();
