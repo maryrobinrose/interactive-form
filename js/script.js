@@ -219,7 +219,7 @@ $("input[type='checkbox']:checked").on('input', function() {
 	let isChecked = $("input[type='checkbox']:checked").length === 0;
 	if(isChecked) {
     $('.activities').innerText = 'Please select at least one activity.';
-  } 
+  }
 });
 
 //Credit card info is valid
@@ -261,16 +261,19 @@ $('#cvv').on('input', function() {
 
 //Validate form when Register is clicked
 $(":button").click(function(event){
-	var form_data=$("#contact").serializeArray();
-	var error_free=true;
-	for (var input in form_data){
-		var element=$("#contact_"+form_data[input]['name']);
-		var valid=element.hasClass("valid");
-		var error_element=$("span", element.parent());
-		if (!valid){error_element.removeClass("error").addClass("error_show"); error_free=false;}
-		else{error_element.removeClass("error_show").addClass("error");}
+	let formInput = $("#contact").serializeArray();
+	let noError = true;
+	for (let input in formInput){
+		let element = $("#contact_" + formInput[input]['name']);
+		let valid = element.hasClass("valid");
+		let errorElement = $("span", element.parent());
+		if (!valid) {
+      errorElement.removeClass("error").addClass("error_show");
+      noError = false;
+    } else {
+      errorElement.removeClass("error_show").addClass("error");}
 	}
-	if (!error_free){
+	if (!noError){
 		event.preventDefault();
 	}
 	else{
