@@ -73,22 +73,20 @@ $('input[name="all"]').change(function (event) {
   $total.innerHTML = 'Total: $' + $sum;
 });
 
-//Create variables for each checkbox
+//Create variables for conflicting checkboxes
 const jsFrameworks = $("input[name ='js-frameworks']");
 const jsLibrary = $("input[name ='js-libs']");
 const express = $("input[name ='express']");
 const node = $("input[name ='node']");
-const buildTools = $("input[name ='build-tools']");
-const npm = $("input[name ='npm']");
 
 //If JavaScript Frameworks Workshop is checked
 $('input[name="js-frameworks"]').change(function (event) {
   if($(event.target).is(':checked')) {
     $sum += 100;
-    express.prop('disabled', true);
+    express.prop('disabled', true).parent().css("color", "darkgray");
   } else {
     $sum -= 100;
-    express.prop('disabled', false);
+    express.prop('disabled', false).parent().css("color", "black");
   }
   $total.innerHTML = 'Total: $' + $sum;
 });
@@ -97,10 +95,10 @@ $('input[name="js-frameworks"]').change(function (event) {
 $('input[name="js-libs"]').change(function (event) {
   if($(event.target).is(':checked')) {
     $sum += 100;
-    node.prop('disabled', true);
+    node.prop('disabled', true).parent().css("color", "darkgray");
   } else {
     $sum -= 100;
-    node.prop('disabled', false);
+    node.prop('disabled', false).parent().css("color", "black");
   }
   $total.innerHTML = 'Total: $' + $sum;
 });
@@ -109,10 +107,10 @@ $('input[name="js-libs"]').change(function (event) {
 $('input[name="express"]').change(function (event) {
   if($(event.target).is(':checked')) {
     $sum += 100;
-    jsFrameworks.prop('disabled', true);
+    jsFrameworks.prop('disabled', true).parent().css("color", "darkgray");
   } else {
     $sum -= 100;
-    jsFrameworks.prop('disabled', false);
+    jsFrameworks.prop('disabled', false).parent().css("color", "black");
   }
   $total.innerHTML = 'Total: $' + $sum;
 });
@@ -121,10 +119,10 @@ $('input[name="express"]').change(function (event) {
 $('input[name="node"]').change(function (event) {
   if($(event.target).is(':checked')) {
     $sum += 100;
-    jsLibrary .prop('disabled', true);
+    jsLibrary .prop('disabled', true).parent().css("color", "darkgray");
   } else {
     $sum -= 100;
-    jsLibrary .prop('disabled', false);
+    jsLibrary .prop('disabled', false).parent().css("color", "black");
   }
   $total.innerHTML = 'Total: $' + $sum;
 });
@@ -149,32 +147,4 @@ $('input[name="npm"]').change(function (event) {
   $total.innerHTML = 'Total: $' + $sum;
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*//When a checkbox is clicked
-$('input:checkbox').on('change', function () {
-  if ($(this).is(':checked')) {
-    //Show the h4 heading
-    $total.show();
-    //Add the value of each clicked checkbox
-    $sum += +this.value;
-    //Change string to a number and add it to the h4
-    $('.textTotal').html(parseInt($sum));
-  } else if ($('input:checkbox')) {
-    //Subtract value when checkbox is unclicked
-    $sum -= +this.value;
-    $('.textTotal').html(parseInt($sum));
-  }
-});*/
+//*** Payment Info ***//
