@@ -3,6 +3,8 @@ Treehouse Techdegree:
 FSJS project 3 - Interactive Form
 ******************************************/
 
+//Global variables
+const $name = $('#name');
 
 //Set focus on first text field when page loads
 $('#name').focus();
@@ -184,6 +186,34 @@ $($payment).change(function() {
     $($bitCoin).show();
   }
 });
+
+
+//Regex variables
+const regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const regCreditCard = (1[3-6]);
+
+//Name field isn't blank
+$('#name').on('input', function() {
+	let input = $(this);
+	let isName = input.val();
+	if(isName) {
+    input.removeClass("invalid").addClass("valid");
+  } else {
+    input.removeClass("valid").addClass("invalid");
+  }
+});
+
+//Email is valid
+
+
+
+//At least one checkbox is selected
+
+//Credit card info is valid
+  //Cred card between 13 and 16 digits
+  //Zip code is 5 digits
+  //CVV is 3 digits
+
 
 
 console.log('hi');
