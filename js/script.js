@@ -166,8 +166,22 @@ $($bitCoin).hide();
 //Default select Credit Card option
 $($payment).val('credit card');
 
-
-
+//Show correct option when selected
+$($payment).change(function() {
+  if (this.value == 'credit card') {
+    $($creditCard).show();
+    $($payPal).hide();
+    $($bitCoin).hide();
+  } else if (this.value == 'paypal') {
+    $($creditCard).hide();
+    $($payPal).show();
+    $($bitCoin).hide();
+  } else {
+    $($creditCard).hide();
+    $($payPal).hide();
+    $($bitCoin).show();
+  }
+});
 
 
 console.log('hi');
