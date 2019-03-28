@@ -9,6 +9,12 @@ const $name = $('#name');
 //Set focus on first text field when page loads
 $('#name').focus();
 
+//*** Create error message ***//
+/*<div>
+		<label for="contact_message">Message:</label>
+		<textarea id="contact_message" name="message"></textarea>
+		<span class="error">This field is required</span>
+	</div>*/
 
 //*** Job Role ***//
 //Selects "Other" job title from list
@@ -260,11 +266,11 @@ $('#cvv').on('input', function() {
 });
 
 //Validate form when Register is clicked
-$(":button").click(function(event){
+/*$(":button").click(function(event){
 	let formInput = $("#contact").serializeArray();
 	let noError = true;
 	for (let input in formInput){
-		let element = $("#contact_" + formInput[input]['name']);
+		let element = $("#contact" + formInput[input]['name']);
 		let valid = element.hasClass("valid");
 		let errorElement = $("span", element.parent());
 		if (!valid) {
@@ -276,7 +282,7 @@ $(":button").click(function(event){
 	if (!noError){
 		event.preventDefault();
 	}
-	else{
+	else
 		alert('No errors: Form will be submitted');
 	}
-});
+});*/
