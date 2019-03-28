@@ -43,6 +43,8 @@ $('#design').change(function() {
     $('#color option[value="dimgrey"]').attr('selected', false).attr('hidden', true);
 
   } else if (this.value == 'heart js') {
+    $('#colors-js-puns').show();
+
     $('#color option[value="cornflowerblue"]').attr('selected', false).attr('hidden', true);
     $('#color option[value="darkslategrey"]').attr('selected', false).attr('hidden', true);
     $('#color option[value="gold"]').attr('selected', false).attr('hidden', true);
