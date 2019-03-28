@@ -214,7 +214,13 @@ $('#mail').on('input', function() {
 });
 
 //At least one checkbox is selected
-$("input[type='checkbox']:checked").length > 0
+$("input[type='checkbox']:checked").on('input', function() {
+	let input = $(this);
+	let isChecked = $("input[type='checkbox']:checked").length === 0;
+	if(isChecked) {
+    $('.activities').innerText = 'Please select at least one activity.';
+  } 
+});
 
 //Credit card info is valid
 //Cred card between 13 and 16 digits
@@ -253,9 +259,21 @@ $('#cvv').on('input', function() {
   }
 });
 
-
-
-
-
-
-console.log('hi');
+//Validate form when Register is clicked
+$(":button").click(function(event){
+	var form_data=$("#contact").serializeArray();
+	var error_free=true;
+	for (var input in form_data){
+		var element=$("#contact_"+form_data[input]['name']);
+		var valid=element.hasClass("valid");
+		var error_element=$("span", element.parent());
+		if (!valid){error_element.removeClass("error").addClass("error_show"); error_free=false;}
+		else{error_element.removeClass("error_show").addClass("error");}
+	}
+	if (!error_free){
+		event.preventDefault();
+	}
+	else{
+		alert('No errors: Form will be submitted');
+	}
+});
