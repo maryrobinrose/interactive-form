@@ -238,7 +238,21 @@ $('#zip').on('input', function() {
     input.removeClass("valid").addClass("invalid");
   }
 });
+
 //CVV is 3 digits
+$('#cvv').on('input', function() {
+	let input = $(this);
+	let regCVV = /^[0-9]{3}$/;
+	let isCVV = regCVV.test(input.val());
+	if(isCVV) {
+    input.removeClass("invalid").addClass("valid");
+  } else {
+    input.removeClass("valid").addClass("invalid");
+  }
+});
+
+
+
 
 
 
