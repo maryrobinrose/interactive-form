@@ -269,8 +269,12 @@ $('#cvv').on('input', function() {
   }
 });
 
-//Submit button becomes available when form is fully valid
-$(":button").prop('disabled', true);
+//Submit button is disabled on page load
+const $submitButton = $(':button');
+$($submitButton).prop('disabled', true);
 
+//Submit button becomes available when form is fully valid
+//if all forms are filled out
+  $(":button").prop('disabled', false);
 
 console.log('hi');
