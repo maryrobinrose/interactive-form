@@ -8,10 +8,6 @@ const $name = $('#name');
 const $design = $('#design');
 const $payment = $('#payment');
 const $creditCard = $('#credit-card');
-//const $ccNumber = $('#cc-num');
-//const $zipCode = $('#zip');
-//const $ccv = $('#ccv');
-//const $expYear = $('#exp-year');
 const $payPal = $("fieldset div p")[0];
 const $bitCoin = $("fieldset div p")[1];
 const jsFrameworks = $("input[name ='js-frameworks']");
@@ -308,14 +304,13 @@ $('form').submit(function (event) {
       $($validateError).show();
     }
   }
-
   //If activity isn't checked
   if ($("input:checked").length === 0) {
     console.log('input');
     event.preventDefault();
     $($validateError).show();
   }
-  //If email isn't valid in
+  //If email isn't valid 
   if ($emailValid === false) {
     console.log('email');
     event.preventDefault();
