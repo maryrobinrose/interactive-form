@@ -220,21 +220,17 @@ $('#mail').on('input', function() {
 });
 
 //At least one checkbox is selected
-//const activityCheck = $('.activities');
 const activityCheck = document.createElement("div");
 $("input:checkbox").on("click", activityValidation);
   function activityValidation() {
     let checks = $("input:checked").length;
       if (checks === 0) {
-        console.log('Please select activity');
-        $($activities).append(activityCheck);
+        $($activities).prepend(activityCheck);
         activityCheck.innerText = 'Please select at least one activity.';
       } else {
           activityCheck.innerText = '';
       }
     }
-
-
 
 //Credit card info is valid
 //Cred card between 13 and 16 digits
