@@ -41,12 +41,6 @@ $('#title').change(function() {
 //Hide color options on page load
 $('#colors-js-puns').hide();
 
-//Default select JS Puns option
-$($design).val('js puns');
-//Disable Select Method option
-$('#design option[value="select_method"]').attr('disabled','disabled');
-
-
 //Shows color options that match design selection
 $('#design').change(function() {
   if (this.value == 'js puns') {
