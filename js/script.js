@@ -275,6 +275,9 @@ $($submitButton).prop('disabled', true);
 
 //Submit button becomes available when form is fully valid
 //if all forms are filled out
+$("form").keyup(function(){
   $(":button").prop('disabled', false);
+  });
+
 
 console.log('hi');
