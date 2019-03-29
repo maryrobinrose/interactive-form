@@ -6,7 +6,7 @@ FSJS project 3 - Interactive Form
 //Global variables
 const $name = $('#name');
 const $design = $('#design');
-//const $payment = $('#payment');
+const $payment = $('#payment');
 const $creditCard = $('#credit-card');
 //const $ccNumber = $('#cc-num');
 //const $zipCode = $('#zip');
@@ -25,7 +25,7 @@ let $emailValid = false;
 let $ccnumValid = false;
 let $zipValid = false;
 let $cvvValid = false;
-let $payment = 'credit card';
+let $paymentMethod = 'credit card';
 
 
 //Set focus on first text field when page loads
@@ -178,7 +178,6 @@ $('#payment option[value="select_method"]').attr('disabled','disabled');
 
 //Show correct option when selected
 $('#payment').change(function() {
-      //this.value
   if ($payment == 'credit card') {
     $($creditCard).show();
     $($payPal).hide();
@@ -283,7 +282,7 @@ $('#cvv').on('input', function() {
 const $validateError = document.createElement("div");
 $($validateError).addClass('error_show');
 $('.container').append($validateError);
-$validateError.innerText = 'Please complete all required fields.';
+$validateError.innerText = '*Please complete all required fields.';
 $($validateError).hide();
 
 //Prevent page refresh if form is not complete
@@ -304,7 +303,7 @@ $('form').submit(function (event) {
     $($validateError).show();
   }
   //If credit card payment is selected
-  if ($payment == 'credit card') {
+  if ($paymentMethod == 'credit card') {
     //If credit card number isn't valid
     if ($ccnumValid === false) {
       event.preventDefault();
