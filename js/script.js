@@ -6,7 +6,7 @@ FSJS project 3 - Interactive Form
 //Global variables
 const $name = $('#name');
 const $design = $('#design');
-const $payment = $('#payment');
+//const $payment = $('#payment');
 const $creditCard = $('#credit-card');
 //const $ccNumber = $('#cc-num');
 //const $zipCode = $('#zip');
@@ -18,6 +18,15 @@ const jsFrameworks = $("input[name ='js-frameworks']");
 const jsLibrary = $("input[name ='js-libs']");
 const express = $("input[name ='express']");
 const node = $("input[name ='node']");
+
+//Valid variables
+let $nameValid = false;
+let $emailValid = false;
+let $ccnumValid = false;
+let $zipValid = false;
+let $cvvValid = false;
+let $payment = 'credit card';
+
 
 //Set focus on first text field when page loads
 $($name).focus();
@@ -163,13 +172,14 @@ $($payPal).hide();
 $($bitCoin).hide();
 
 //Default select Credit Card option
-$($payment).val('credit card');
+$('#payment').val('credit card');
 //Disable Select Method option
 $('#payment option[value="select_method"]').attr('disabled','disabled');
 
 //Show correct option when selected
-$($payment).change(function() {
-  if (this.value == 'credit card') {
+$('#payment').change(function() {
+      //this.value
+  if ($payment == 'credit card') {
     $($creditCard).show();
     $($payPal).hide();
     $($bitCoin).hide();
@@ -185,25 +195,29 @@ $($payment).change(function() {
 });
 
 //Name field isn't blank
-const $nameValid = $('#name').on('input', function() {
+$('#name').on('input', function() {
 	let input = $(this);
 	let isName = input.val();
 	if(isName) {
     input.removeClass("invalid").addClass("valid");
+    $nameIsValid = true;
   } else {
     input.removeClass("valid").addClass("invalid");
+    $nameIsValid = false;
   }
 });
 
 //Email is valid
-const $emailValid = $('#mail').on('input', function() {
+$('#mail').on('input', function() {
 	let input = $(this);
 	let regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 	let isEmail = regEmail.test(input.val());
 	if(isEmail) {
     input.removeClass("invalid").addClass("valid");
+    $emailValid = true;
   } else {
     input.removeClass("valid").addClass("invalid");
+    $emailValid = false;
   }
 });
 
@@ -223,38 +237,44 @@ $("input:checkbox").on("click", activityValidation);
 
 //Credit card info is valid
 //Credit card between 13 and 16 digits
-const $ccnumValid = $('#cc-num').on('input', function() {
+$('#cc-num').on('input', function() {
 	let input = $(this);
 	let regCard = /^[0-9]{13,16}$/;
 	let isCard = regCard.test(input.val());
 	if(isCard) {
     input.removeClass("invalid").addClass("valid");
+    $ccnumValid = true;
   } else {
     input.removeClass("valid").addClass("invalid");
+    $ccnumValid = false;
   }
 });
 
 //Zip code is 5 digits
-const $zipValid = $('#zip').on('input', function() {
+$('#zip').on('input', function() {
 	let input = $(this);
 	let regZip = /^[0-9]{5}$/;
 	let isZip = regZip.test(input.val());
 	if(isZip) {
     input.removeClass("invalid").addClass("valid");
+    $zipValid = true;
   } else {
     input.removeClass("valid").addClass("invalid");
+    $zipValid = false;
   }
 });
 
 //CVV is 3 digits
-const $cvvValid = $('#cvv').on('input', function() {
+$('#cvv').on('input', function() {
 	let input = $(this);
 	let regCVV = /^[0-9]{3}$/;
 	let isCVV = regCVV.test(input.val());
 	if(isCVV) {
     input.removeClass("invalid").addClass("valid");
+    $cvvValid = true;
   } else {
     input.removeClass("valid").addClass("invalid");
+    $cvvValid = false;
   }
 });
 
@@ -262,16 +282,42 @@ const $cvvValid = $('#cvv').on('input', function() {
 //Create div to hold error message
 const $validateError = document.createElement("div");
 $($validateError).addClass('error_show');
-$('.container').prepend($validateError);
+$('.container').append($validateError);
 $validateError.innerText = 'Please complete all required fields.';
 $($validateError).hide();
 
 //Prevent page refresh if form is not complete
 $('form').submit(function (event) {
-  if //all fields are valid {
-    alert('Thank you for registering!');
-  } else {
-    event.preventDefault();
-    $($validateError).show();
+  if ($payment == 'credit card') {
+    if ($ccnumValid === false) {
+      event.preventDefault();
+      $($validateError).show();
+    }
+    if ($zipValid === false) {
+      event.preventDefault();
+      $($validateError).show();
+    }
+    if ($cvvValid === false) {
+      event.preventDefault();
+      $($validateError).show();
+    }
+
+    if ($("input:checked").length === 0) {
+      event.preventDefault();
+      $($validateError).show();
+    }
+
+    if ($emailValid === false) {
+      event.preventDefault();
+      $($validateError).show();
+    }
+
+    if ($nameValid === false) {
+      event.preventDefault();
+      $($validateError).show();
+
+    } else {
+      alert('Thank you for registering!');
+    }
   }
 });
