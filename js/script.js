@@ -288,36 +288,40 @@ $($validateError).hide();
 
 //Prevent page refresh if form is not complete
 $('form').submit(function (event) {
+  //If activity isn't checked
+  if ($("input:checked").length === 0) {
+    event.preventDefault();
+    $($validateError).show();
+  }
+  //If email isn't valid in
+  if ($emailValid === false) {
+    event.preventDefault();
+    $($validateError).show();
+  }
+  //If name isn't filled in
+  if ($nameValid === false) {
+    event.preventDefault();
+    $($validateError).show();
+  }
+  //If credit card payment is selected
   if ($payment == 'credit card') {
+    //If credit card number isn't valid
     if ($ccnumValid === false) {
       event.preventDefault();
       $($validateError).show();
     }
+    //If zip code isn't valid
     if ($zipValid === false) {
       event.preventDefault();
       $($validateError).show();
     }
+    //If cvv isn't valid
     if ($cvvValid === false) {
       event.preventDefault();
       $($validateError).show();
     }
-
-    if ($("input:checked").length === 0) {
-      event.preventDefault();
-      $($validateError).show();
-    }
-
-    if ($emailValid === false) {
-      event.preventDefault();
-      $($validateError).show();
-    }
-
-    if ($nameValid === false) {
-      event.preventDefault();
-      $($validateError).show();
-
-    } else {
-      alert('Thank you for registering!');
-    }
+    //If everything is valid
+  } else {
+    alert('Thank you for registering!');
   }
 });
