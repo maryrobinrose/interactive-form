@@ -265,3 +265,14 @@ $($validateError).addClass('error_show');
 $('.container').prepend($validateError);
 $validateError.innerText = 'Please complete all required fields.';
 $($validateError).hide();
+
+//Prevent page refresh is form is no complete
+$('form').submit(function (event) {
+  //select each field
+  //if each field {
+  alert('Thank you for registering!');
+} else {
+  event.preventDefault();
+  $($validateError).show();
+}
+});
