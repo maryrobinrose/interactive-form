@@ -25,7 +25,7 @@ let $emailValid = false;
 let $ccnumValid = false;
 let $zipValid = false;
 let $cvvValid = false;
-let $paymentMethod = 'credit card';
+let $paymentMethod = $('#payment').val('credit card');
 
 
 //Set focus on first text field when page loads
@@ -178,7 +178,7 @@ $('#payment option[value="select_method"]').attr('disabled','disabled');
 
 //Show correct option when selected
 $('#payment').change(function() {
-  if ($payment == 'credit card') {
+  if (this.value == 'credit card') {
     $($creditCard).show();
     $($payPal).hide();
     $($bitCoin).hide();
@@ -199,10 +199,10 @@ $('#name').on('input', function() {
 	let isName = input.val();
 	if(isName) {
     input.removeClass("invalid").addClass("valid");
-    $nameIsValid = true;
+    $nameValid = true;
   } else {
     input.removeClass("valid").addClass("invalid");
-    $nameIsValid = false;
+    $nameValid = false;
   }
 });
 
@@ -307,7 +307,7 @@ $('form').submit(function (event) {
       event.preventDefault();
       $($validateError).show();
     }
-  } 
+  }
 
   //If activity isn't checked
   if ($("input:checked").length === 0) {
@@ -326,7 +326,7 @@ $('form').submit(function (event) {
     console.log('name');
     event.preventDefault();
     $($validateError).show();
-  }  else {
+  } else {
     alert('Thank you for registering!');
   }
 
