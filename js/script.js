@@ -14,15 +14,18 @@ const $creditCard = $('#credit-card');
 //const $expYear = $('#exp-year');
 const $payPal = $("fieldset div p")[0];
 const $bitCoin = $("fieldset div p")[1];
+const jsFrameworks = $("input[name ='js-frameworks']");
+const jsLibrary = $("input[name ='js-libs']");
+const express = $("input[name ='express']");
+const node = $("input[name ='node']");
 
 //Set focus on first text field when page loads
-$('#name').focus();
-
+$($name).focus();
 
 //*** Job Role ***//
-//Selects "Other" job title from list
+//Select "Other" job title from list
 const $otherTitle = $('#other-title');
-//Hides otherTitle text field when page loads
+//Hide otherTitle text field when page loads
 $otherTitle.hide();
 
 //Show otherTitle text field when "Other" is selected, hide when unselected
@@ -35,12 +38,12 @@ $('#title').change(function() {
 });
 
 //*** T-Shirt Info ***//
-//Hides color options on page load
+//Hide color options on page load
 $('#colors-js-puns').hide();
 
 //Default select JS Puns option
 $($design).val('js puns');
-//Disable Select Method payment
+//Disable Select Method option
 $('#design option[value="select_method"]').attr('disabled','disabled');
 
 
@@ -76,9 +79,9 @@ $('#design').change(function() {
 //*** Register for Activities ***//
 //Starting sum
 let $sum = 0;
-//Selects activities section by class
+//Select activities section by class
 let $activities = $(".activities");
-//Creates a header to hold activities total
+//Create a div to hold activities total
 const $total = document.createElement("div");
 $($activities).append($total);
 
@@ -91,12 +94,6 @@ $('input[name="all"]').change(function (event) {
   }
   $total.innerHTML = 'Total: $' + $sum;
 });
-
-//Create variables for conflicting checkboxes
-const jsFrameworks = $("input[name ='js-frameworks']");
-const jsLibrary = $("input[name ='js-libs']");
-const express = $("input[name ='express']");
-const node = $("input[name ='node']");
 
 //If JavaScript Frameworks Workshop is checked
 $('input[name="js-frameworks"]').change(function (event) {
@@ -167,14 +164,13 @@ $('input[name="npm"]').change(function (event) {
 });
 
 //*** Payment Info ***//
-
 //Hide PayPal and Bitcoin on page load
 $($payPal).hide();
 $($bitCoin).hide();
 
 //Default select Credit Card option
 $($payment).val('credit card');
-//Disable Select Method payment
+//Disable Select Method option
 $('#payment option[value="select_method"]').attr('disabled','disabled');
 
 //Show correct option when selected
@@ -193,7 +189,6 @@ $($payment).change(function() {
     $($bitCoin).show();
   }
 });
-
 
 //Name field isn't blank
 $('#name').on('input', function() {
@@ -218,7 +213,6 @@ $('#mail').on('input', function() {
   }
 });
 
-
 //At least one checkbox is selected
 const activityCheck = document.createElement("div");
 $(activityCheck).addClass('error_show');
@@ -234,7 +228,7 @@ $("input:checkbox").on("click", activityValidation);
     }
 
 //Credit card info is valid
-//Cred card between 13 and 16 digits
+//Credit card between 13 and 16 digits
 $('#cc-num').on('input', function() {
 	let input = $(this);
 	let regCard = /^[0-9]{13,16}$/;
@@ -279,6 +273,3 @@ $($submitButton).prop('disabled', true);
 $("form").keyup(function(){
   $(":button").prop('disabled', false);
   });
-
-
-console.log('hi');
