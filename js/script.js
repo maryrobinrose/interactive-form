@@ -269,24 +269,8 @@ $('#cvv').on('input', function() {
   }
 });
 
-//Validate form when Register is clicked
-/*$(":button").click(function(event){
-	let formInput = $("#contact").serializeArray();
-	let noError = true;
-	for (let input in formInput){
-		let element = $("#contact" + formInput[input]['name']);
-		let valid = element.hasClass("valid");
-		let errorElement = $("span", element.parent());
-		if (!valid) {
-      errorElement.removeClass("error").addClass("error_show");
-      noError = false;
-    } else {
-      errorElement.removeClass("error_show").addClass("error");}
-	}
-	if (!noError){
-		event.preventDefault();
-	}
-	else
-		alert('No errors: Form will be submitted');
-	}
-});*/
+//Submit button becomes available when form is fully valid
+$(":button").prop('disabled', true);
+
+
+console.log('hi');
