@@ -185,7 +185,7 @@ $($payment).change(function() {
 });
 
 //Name field isn't blank
-$('#name').on('input', function() {
+const $nameValid = $('#name').on('input', function() {
 	let input = $(this);
 	let isName = input.val();
 	if(isName) {
@@ -196,7 +196,7 @@ $('#name').on('input', function() {
 });
 
 //Email is valid
-$('#mail').on('input', function() {
+const $emailValid = $('#mail').on('input', function() {
 	let input = $(this);
 	let regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 	let isEmail = regEmail.test(input.val());
@@ -223,7 +223,7 @@ $("input:checkbox").on("click", activityValidation);
 
 //Credit card info is valid
 //Credit card between 13 and 16 digits
-$('#cc-num').on('input', function() {
+const $ccnumValid = $('#cc-num').on('input', function() {
 	let input = $(this);
 	let regCard = /^[0-9]{13,16}$/;
 	let isCard = regCard.test(input.val());
@@ -235,7 +235,7 @@ $('#cc-num').on('input', function() {
 });
 
 //Zip code is 5 digits
-$('#zip').on('input', function() {
+const $zipValid = $('#zip').on('input', function() {
 	let input = $(this);
 	let regZip = /^[0-9]{5}$/;
 	let isZip = regZip.test(input.val());
@@ -247,7 +247,7 @@ $('#zip').on('input', function() {
 });
 
 //CVV is 3 digits
-$('#cvv').on('input', function() {
+const $cvvValid = $('#cvv').on('input', function() {
 	let input = $(this);
 	let regCVV = /^[0-9]{3}$/;
 	let isCVV = regCVV.test(input.val());
@@ -266,13 +266,12 @@ $('.container').prepend($validateError);
 $validateError.innerText = 'Please complete all required fields.';
 $($validateError).hide();
 
-//Prevent page refresh is form is no complete
+//Prevent page refresh if form is not complete
 $('form').submit(function (event) {
-  //select each field
-  //if each field {
-  alert('Thank you for registering!');
-} else {
-  event.preventDefault();
-  $($validateError).show();
-}
+  if //all fields are valid {
+    alert('Thank you for registering!');
+  } else {
+    event.preventDefault();
+    $($validateError).show();
+  }
 });
