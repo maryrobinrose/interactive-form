@@ -221,6 +221,7 @@ $('#mail').on('input', function() {
 
 //At least one checkbox is selected
 const activityCheck = document.createElement("div");
+$(activityCheck).addClass('error_show');
 $("input:checkbox").on("click", activityValidation);
   function activityValidation() {
     let checks = $("input:checked").length;

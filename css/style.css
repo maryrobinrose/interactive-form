@@ -114,28 +114,29 @@ button:hover {
 }
 
 button:disabled,
-button[disabled]{
+button[disabled] {
   border: 1px solid #999999;
   background-color: #cccccc;
   color: #666666;
 }
 
-input.invalid, textarea.invalid{
+input.invalid, textarea.invalid {
 	border: 2px solid red;
 }
 
-input.valid, textarea.valid{
+input.valid, textarea.valid {
 	border: 2px solid green;
 }
 
-.error{
+.error {
 	display: none;
 	margin-left: 10px;
 }
 
-.error_show{
+.error_show {
 	color: red;
 	margin-left: 10px;
+  margin-bottom: 20px;
 }
 
 /* =================================
