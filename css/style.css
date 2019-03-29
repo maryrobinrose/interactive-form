@@ -121,11 +121,11 @@ button[disabled] {
 }
 
 input.invalid, textarea.invalid {
-	border: 2px solid red;
+	border: 2px solid #DC143C;
 }
 
 input.valid, textarea.valid {
-	border: 2px solid green;
+	border: 2px solid #3CB371;
 }
 
 .error {
@@ -134,7 +134,7 @@ input.valid, textarea.valid {
 }
 
 .error_show {
-	color: red;
+	color: #DC143C;
 	margin-left: 10px;
   margin-bottom: 20px;
 }

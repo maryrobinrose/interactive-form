@@ -5,16 +5,19 @@ FSJS project 3 - Interactive Form
 
 //Global variables
 const $name = $('#name');
+const $design = $('#design');
+const $payment = $('#payment');
+const $creditCard = $('#credit-card');
+//const $ccNumber = $('#cc-num');
+//const $zipCode = $('#zip');
+//const $ccv = $('#ccv');
+//const $expYear = $('#exp-year');
+const $payPal = $("fieldset div p")[0];
+const $bitCoin = $("fieldset div p")[1];
 
 //Set focus on first text field when page loads
 $('#name').focus();
 
-//*** Create error message ***//
-/*<div>
-		<label for="contact_message">Message:</label>
-		<textarea id="contact_message" name="message"></textarea>
-		<span class="error">This field is required</span>
-	</div>*/
 
 //*** Job Role ***//
 //Selects "Other" job title from list
@@ -34,6 +37,12 @@ $('#title').change(function() {
 //*** T-Shirt Info ***//
 //Hides color options on page load
 $('#colors-js-puns').hide();
+
+//Default select JS Puns option
+$($design).val('js puns');
+//Disable Select Method payment
+$('#design option[value="select_method"]').attr('disabled','disabled');
+
 
 //Shows color options that match design selection
 $('#design').change(function() {
@@ -158,16 +167,6 @@ $('input[name="npm"]').change(function (event) {
 });
 
 //*** Payment Info ***//
-//Create variables
-const $payment = $('#payment');
-const $creditCard = $('#credit-card');
-const $ccNumber = $('#cc-num');
-const $zipCode = $('#zip');
-const $ccv = $('#ccv');
-const $expMonth = $('#exp-month');
-const $expYear = $('#exp-year');
-const $payPal = $("fieldset div p")[0];
-const $bitCoin = $("fieldset div p")[1];
 
 //Hide PayPal and Bitcoin on page load
 $($payPal).hide();
@@ -176,7 +175,7 @@ $($bitCoin).hide();
 //Default select Credit Card option
 $($payment).val('credit card');
 //Disable Select Method payment
-$('#payment option[value="select_method"]').attr('disabled',"disabled");
+$('#payment option[value="select_method"]').attr('disabled','disabled');
 
 //Show correct option when selected
 $($payment).change(function() {
@@ -218,6 +217,7 @@ $('#mail').on('input', function() {
     input.removeClass("valid").addClass("invalid");
   }
 });
+
 
 //At least one checkbox is selected
 const activityCheck = document.createElement("div");
