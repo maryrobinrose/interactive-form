@@ -257,3 +257,11 @@ $('#cvv').on('input', function() {
     input.removeClass("valid").addClass("invalid");
   }
 });
+
+//*** Validate Form on Submit ***//
+//Create div to hold error message
+const $validateError = document.createElement("div");
+$($validateError).addClass('error_show');
+$('.container').prepend($validateError);
+$validateError.innerText = 'Please complete all required fields.';
+$($validateError).hide();
