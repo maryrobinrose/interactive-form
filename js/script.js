@@ -286,21 +286,18 @@ $('form').submit(function (event) {
   if ($('#payment').val('credit card')) {
     //If credit card number isn't valid
     if ($ccnumValid === false) {
-      console.log('cc');
       event.preventDefault();
       $($validateError).show();
-      $( "<p class='error_show'>*Please enter a valid zip code</p>" ).insertBefore( "#cc-num" );
+      $( "<p class='error_show'>*Please enter a valid credit card number</p>" ).insertBefore( "#cc-num" );
     }
     //If zip code isn't valid
     if ($zipValid === false) {
-      console.log('zip');
       event.preventDefault();
       $($validateError).show();
       $( "<p class='error_show'>*Please enter a valid zip code</p>" ).insertBefore( "#zip" );
     }
     //If cvv isn't valid
     if ($cvvValid === false) {
-      console.log('cvv');
       event.preventDefault();
       $($validateError).show();
       $( "<p class='error_show'>*Please enter a valid CVV</p>" ).insertBefore( "#cvv" );
@@ -308,7 +305,6 @@ $('form').submit(function (event) {
   }
   //If activity isn't checked
   if ($("input:checked").length === 0) {
-    console.log('input');
     event.preventDefault();
     $($validateError).show();
     $($activities).prepend(activityCheck);
@@ -316,7 +312,6 @@ $('form').submit(function (event) {
   }
   //If email isn't valid
   if ($emailValid === false) {
-    console.log('email');
     event.preventDefault();
     $($validateError).show();
     $( "<p class='error_show'>*Please enter a valid email</p>" ).insertBefore( "#mail" );
@@ -324,13 +319,11 @@ $('form').submit(function (event) {
   }
   //If name isn't filled in
   if ($nameValid === false) {
-    console.log('name');
     event.preventDefault();
     $($validateError).show();
     $( "<p class='error_show'>*Please enter a valid name</p>" ).insertBefore( "#name" );
-
-  } //else {
-    //alert('Thank you for registering!');
-  //}
+  } else {
+    alert('Thank you for registering!');
+  }
 
 });
