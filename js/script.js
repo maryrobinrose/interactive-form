@@ -21,7 +21,6 @@ let $emailValid = false;
 let $ccnumValid = false;
 let $zipValid = false;
 let $cvvValid = false;
-let $paymentMethod = $('#payment').val('credit card');
 
 
 //Set focus on first text field when page loads
@@ -284,7 +283,7 @@ $($validateError).hide();
 //Prevent page refresh if form is not complete
 $('form').submit(function (event) {
   //If credit card payment is selected
-  if ($paymentMethod == 'credit card') {
+  if ($('#payment').val('credit card')) {
     //If credit card number isn't valid
     if ($ccnumValid === false) {
       console.log('cc');
