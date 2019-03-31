@@ -322,8 +322,6 @@ $('form').submit(function (event) {
     event.preventDefault();
     $($validateError).show();
     $( "<p class='error_show'>*Please enter a valid name</p>" ).insertBefore( "#name" );
-  } else {
-    alert('Thank you for registering!');
-  }
+  } 
 
 });
