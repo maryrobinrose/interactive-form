@@ -289,6 +289,7 @@ $('form').submit(function (event) {
     //If credit card number isn't valid
     if ($ccnumValid === false) {
       event.preventDefault();
+
       $($validateError).show();
       $( "<p class='error_show'>*Please enter a valid credit card number</p>" ).insertBefore( "#cc-num" );
     }
@@ -324,6 +325,7 @@ $('form').submit(function (event) {
   if ($nameValid === false) {
     event.preventDefault();
     $($validateError).show();
-    $( "<p class='error_show'>*Please enter a valid name</p>" ).insertBefore( "#name" );
+    $('#name').css('border-color', 'red');
+    //$( "<p class='error_show'>*Please enter a valid name</p>" ).insertBefore( "#name" );
   }
 });
