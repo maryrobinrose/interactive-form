@@ -291,6 +291,11 @@ $($validateEmailError).addClass('error_show');
 $($validateEmailError).insertBefore('#mail');
 $validateEmailError.innerText = '';
 
+const $validateCCNumError = document.createElement("div");
+$($validateCCNumError).addClass('error_show');
+$($validateCCNumError).insertBefore('#cc-num');
+$validateCCNumError.innerText = '';
+
 //Prevent page refresh if form is not complete
 $('form').submit(function (event) {
 
@@ -299,9 +304,8 @@ $('form').submit(function (event) {
     //If credit card number isn't valid
     if ($ccnumValid === false) {
       event.preventDefault();
-
       $($validateError).show();
-      $( "<p class='error_show'>*Please enter a valid credit card number</p>" ).insertBefore( "#cc-num" );
+      $validateCCNumError.innerText = '*Please enter a valid credit card number';
     }
     //If zip code isn't valid
     if ($zipValid === false) {
