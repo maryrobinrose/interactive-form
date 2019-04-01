@@ -21,6 +21,7 @@ let $emailValid = false;
 let $ccnumValid = false;
 let $zipValid = false;
 let $cvvValid = false;
+let $allCC =
 
 
 //Set focus on first text field when page loads
@@ -282,8 +283,9 @@ $($validateError).hide();
 
 //Prevent page refresh if form is not complete
 $('form').submit(function (event) {
+
   //If credit card payment is selected
-  if ($('#payment').val('credit card')) {
+  if ($('#payment').val() === 'credit card') {
     //If credit card number isn't valid
     if ($ccnumValid === false) {
       event.preventDefault();
@@ -324,5 +326,4 @@ $('form').submit(function (event) {
     $($validateError).show();
     $( "<p class='error_show'>*Please enter a valid name</p>" ).insertBefore( "#name" );
   }
-
 });
