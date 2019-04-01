@@ -296,6 +296,16 @@ $($validateCCNumError).addClass('error_show');
 $($validateCCNumError).insertBefore('#cc-num');
 $validateCCNumError.innerText = '';
 
+const $validateZipError = document.createElement("div");
+$($validateZipError).addClass('error_show');
+$($validateZipError).insertBefore('#zip');
+$validateZipError.innerText = '';
+
+const $validateCVVError = document.createElement("div");
+$($validateCVVError).addClass('error_show');
+$($validateCVVError).insertBefore('#cvv');
+$validateCVVError.innerText = '';
+
 //Prevent page refresh if form is not complete
 $('form').submit(function (event) {
 
@@ -311,13 +321,13 @@ $('form').submit(function (event) {
     if ($zipValid === false) {
       event.preventDefault();
       $($validateError).show();
-      $( "<p class='error_show'>*Please enter a valid zip code</p>" ).insertBefore( "#zip" );
+      $validateZipError.innerText = '*Please enter a valid zip code';
     }
     //If cvv isn't valid
     if ($cvvValid === false) {
       event.preventDefault();
       $($validateError).show();
-      $( "<p class='error_show'>*Please enter a valid CVV</p>" ).insertBefore( "#cvv" );
+      $validateCVVError.innerText = '*Please enter a valid CVV';
     }
   }
 
