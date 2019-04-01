@@ -281,6 +281,16 @@ $('.container').append($validateError);
 $validateError.innerText = '*Please complete all reqired fields';
 $($validateError).hide();
 
+const $validateNameError = document.createElement("div");
+$($validateNameError).addClass('error_show');
+$($validateNameError).insertBefore('#name');
+$validateNameError.innerText = '';
+
+const $validateEmailError = document.createElement("div");
+$($validateEmailError).addClass('error_show');
+$($validateEmailError).insertBefore('#mail');
+$validateEmailError.innerText = '';
+
 //Prevent page refresh if form is not complete
 $('form').submit(function (event) {
 
@@ -318,14 +328,13 @@ $('form').submit(function (event) {
   if ($emailValid === false) {
     event.preventDefault();
     $($validateError).show();
-    $( "<p class='error_show'>*Please enter a valid email</p>" ).insertBefore( "#mail" );
+    $validateEmailError.innerText = '*Please enter a valid email address';
 
   }
   //If name isn't filled in
   if ($nameValid === false) {
     event.preventDefault();
     $($validateError).show();
-    $('#name').css('border-color', 'red');
-    //$( "<p class='error_show'>*Please enter a valid name</p>" ).insertBefore( "#name" );
+    $validateNameError.innerText = '*Please enter a valid name';
   }
 });
