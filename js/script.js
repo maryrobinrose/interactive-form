@@ -303,6 +303,7 @@ $('form').submit(function (event) {
       $( "<p class='error_show'>*Please enter a valid CVV</p>" ).insertBefore( "#cvv" );
     }
   }
+
   //If activity isn't checked
   if ($("input:checked").length === 0) {
     event.preventDefault();
@@ -322,6 +323,6 @@ $('form').submit(function (event) {
     event.preventDefault();
     $($validateError).show();
     $( "<p class='error_show'>*Please enter a valid name</p>" ).insertBefore( "#name" );
-  } 
+  }
 
 });
