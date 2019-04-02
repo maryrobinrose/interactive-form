@@ -21,8 +21,6 @@ let $emailValid = false;
 let $ccnumValid = false;
 let $zipValid = false;
 let $cvvValid = false;
-let $allCC =
-
 
 //Set focus on first text field when page loads
 $($name).focus();
@@ -338,13 +336,14 @@ $('form').submit(function (event) {
     $($activities).prepend(activityCheck);
     activityCheck.innerText = '*Please select at least one activity';
   }
+
   //If email isn't valid
   if ($emailValid === false) {
     event.preventDefault();
     $($validateError).show();
     $validateEmailError.innerText = '*Please enter a valid email address';
-
   }
+
   //If name isn't filled in
   if ($nameValid === false) {
     event.preventDefault();
