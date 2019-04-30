@@ -4,9 +4,13 @@
 
 #### By **Mary Robin Rose**
 
+## Live Link
+
+https://maryrobinrose.github.io/interactive-form
+
 ## Description
 
-_This project uses the jQuery library to shorten and simplify JavaScript syntax. _
+_This project uses the jQuery library to shorten and simplify JavaScript syntax._
 
 ## Setup And Installation
 
